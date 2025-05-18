@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class String
+{
+private:
+	char *text;
+public:
+	String(char * ch)
+	{
+		text = new char[strlen(ch)+1];
+		strcpy(text, ch);
+		cout<<"调用构造函数！"<<endl;
+	}
+	~String()
+	{
+		delete[] text;
+		cout<<"调用析构函数！"<<endl;
+	}
+	void show()
+	{
+		cout<<"text="<<text<<endl;
+	}
+};
+
+int main()
+{
+	String string("Hello world!");
+	string.show();
+
+	return 0;
+}

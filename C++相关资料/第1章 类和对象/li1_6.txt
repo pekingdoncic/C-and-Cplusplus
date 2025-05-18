@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person
+{
+private:
+	int num;
+	char name[10];
+public:
+	Person(int n, char *str)
+	{
+		num = n;
+		strcpy(name, str);
+	}
+	Person(const Person &x)
+	{
+		num = x.num;
+		strcpy(name, x.name);
+	}
+	void show()
+	{
+		cout<<"num="<<num<<"\nname="<<name<<endl;
+	}
+};
+
+int main()
+{
+	Person per1(1001,"Sheldon");
+	per1.show();
+	Person per2(per1);
+	per2.show();
+
+	return 0;
+}
